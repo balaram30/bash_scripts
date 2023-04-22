@@ -3,6 +3,8 @@
 echo "enter the directory which you want to clear"
 read Dir1
 
+path=$(basename $Dir1) 
+
 echo "enter the directory where you want to save the tar file"
 read Dir2
 
@@ -12,7 +14,7 @@ read usrResp
 if [ $usrResp = 'y' ] || [ $usrResp = 'Y' ]
 then 
 	#tar -zcvf /home/$USER/$Dir2/file.tar.gz /home/$USER/$Dir1
-	sudo tar -zcvf $Dir2/file.tar.gz $Dir1
+	sudo tar -zcvf $Dir2/$path.tar.gz $Dir1
 	#find /home/$USER/$Dir1 -type f -delete
 	sudo find $Dir1 -type f -delete
 
